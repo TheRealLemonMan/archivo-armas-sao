@@ -15,13 +15,6 @@ filtrarlas por rareza y calcular su poder total.
    faltan materiales. Para que falle cambiar la línea 89 con lo siguiente: const arma = await forjarArma(base, ["mineral"]); que ahi solo va a usar una sola arma
 3. Al migrar a TypeScript, el compilador detecta y corrige al menos
    un error real de tipos (documentado en este README).
-
-## Errores detectados por TypeScript
-
-1. **Error:** el arreglo de materiales se pasaba como string[]
-   pero la función esperaba Material[].
-   **Corrección:** se redefinió el arreglo de ejemplo con objetos
-   { nombre, cantidad }.
  
 
 ## Decisiones de tipado
@@ -41,7 +34,7 @@ filtrarlas por rareza y calcular su poder total.
    npm run start
 
 ## Aprendizajes
-   Durante el proyecto aprendí que con TypeScript no solo se agregan como "tipos", sino que me obligo a pensar la forma de los datos que iba a usar antes de escribir la lógica y ya despúes copilot me ayude con el resto, un ejemplo es para definir la Rareza como union literal me ayudó a usar: Record<Rareza, number> para asegurar que cada rareza tuviera su "bono" de poder, algo que tal vez en JS me pude haber olvidado.
+   Durante el proyecto aprendí que con TypeScript no solo se agregan como "tipos", sino que me obligo a pensar la forma de los datos que iba a usar antes de escribir la lógica, un ejemplo es para definir la Rareza como union literal me ayudó a usar: Record<Rareza, number> para asegurar que cada rareza tuviera su "bono" de poder, algo que tal vez en JS me pude haber olvidado.
    También me di cuenta de que muchos de los errores que tuve no venian del compilador sino
    de detalles simples como un SetTimeout con mayúscula (en vez de
    setTimeout) hizo que todo mi sistema fallara durante
